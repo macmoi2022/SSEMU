@@ -1,0 +1,56 @@
+/# Visual Studio / Visual C++ ignore for emulator solution
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+*.VC.db
+*.VC.VC.opendb
+Debug/
+Release/
+bin/
+obj/
+Debug*/
+Release*/
+ipch/
+*.pch
+*.pdb
+*.dll
+*.exe
+*.lib
+*.log
+*.cache
+*.ilk
+*.idb
+*.sbr
+*.ipdb
+*.obj
+*.o
+*.iobj
+*.ipdb
+*~
+# NuGet
+*.nupkg
+# Git LFS pointers
+.gitattributes
+# Visual Studio Code
+.vscode/
+# Logs
+*.log
+# Build results
+out/
+
+# Sensitive files
+*.env
+config/*.ini
+config/*.cfg
+
+# Ignore database files
+*.mdf
+*.ldf
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
