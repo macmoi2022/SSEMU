@@ -77,7 +77,7 @@ void CCustomAttack::MainProc(LPOBJ lpObj) // OK
 				return;
 			}
 
-			if((this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
+			if((lpObj->Map >= 18 && lpObj->Map <= 23) || (this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
 			{
 				this->AttackOfflineClose(lpObj);
 				return;
@@ -103,7 +103,7 @@ void CCustomAttack::MainProc(LPOBJ lpObj) // OK
 			}
 		}
 
-		if((this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
+		if((lpObj->Map >= 18 && lpObj->Map <= 23) || (this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
 		{
 			this->CustomAttackClose(lpObj->Index);
 			return;
@@ -487,7 +487,7 @@ void CCustomAttack::CommandCustomAttack(LPOBJ lpObj,char* arg) // OK
 		return;
 	}
 
-	if((this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
+	if((lpObj->Map >= 18 && lpObj->Map <= 23) || (this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
 	{
 		GCNewMessageSend(lpObj->Index,1,2,574);
 		return;
@@ -1261,13 +1261,13 @@ void CCustomAttack::CustomAttackRageAttack(LPOBJ lpObj,int bIndex,int skill) // 
 
 	#else
 
-	pMsg.skill[0] = SET_NUMBERHB(skill);
+ pMsg.skill[0] = SET_NUMBERHB(skill);
 
-	pMsg.skill[1] = SET_NUMBERLB(skill);
+		pMsg.skill[1] = SET_NUMBERLB(skill);
 
-	pMsg.index[0] = SET_NUMBERHB(bIndex);
+		pMsg.index[0] = SET_NUMBERHB(bIndex);
 
-	pMsg.index[1] = SET_NUMBERLB(bIndex);
+		pMsg.index[1] = SET_NUMBERLB(bIndex);
 
 	#endif
 
@@ -1322,7 +1322,7 @@ void CCustomAttack::CGCustomAttackToggleRecv(PMSG_CUSTOM_ATTACK_TOGGLE_RECV* lpM
 		return;
 	}
 
-	if((this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
+	if((lpObj->Map >= 18 && lpObj->Map <= 23) || (this->m_CustomAttackMapZone != -1 && this->m_CustomAttackMapList[lpObj->Map] == 0) || gMap[lpObj->Map].CheckAttr(lpObj->X,lpObj->Y,MAP_ATTR_SAFE) != 0)
 	{
 		return;
 	}
