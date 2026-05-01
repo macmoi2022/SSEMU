@@ -1,4 +1,4 @@
-// CustomAttack.cpp: implementation of the CCustomAttack class.
+﻿// CustomAttack.cpp: implementation of the CCustomAttack class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -70,8 +70,8 @@ void CCustomAttack::MainProc(LPOBJ lpObj) // OK
 				this->AttackOfflineClose(lpObj);
 				return;
 			}
-
-			if(lpObj->SkillSummonPartyTime > 0 && gViewport->CheckViewportObjectPosition(lpObj->Index,lpObj->Attack.StartMap,lpObj->Attack.StartX,lpObj->Attack.StartY,10) == 0)
+			// tắt auto attack offline khi di chuyển ra khỏi local
+			if(lpObj->SkillSummonPartyTime > 0 && gViewport->CheckViewportObjectPosition(lpObj->Index,lpObj->Attack.StartMap,lpObj->Attack.StartX,lpObj->Attack.StartY,255) == 0)
 			{
 				this->AttackOfflineClose(lpObj);
 				return;
@@ -108,8 +108,8 @@ void CCustomAttack::MainProc(LPOBJ lpObj) // OK
 			this->CustomAttackClose(lpObj->Index);
 			return;
 		}
-
-		if(gViewport->CheckViewportObjectPosition(lpObj->Index,lpObj->Attack.StartMap,lpObj->Attack.StartX,lpObj->Attack.StartY,5) == 0)
+		// tắt auto attack khi di chuyển ra khỏi local
+		if(gViewport->CheckViewportObjectPosition(lpObj->Index,lpObj->Attack.StartMap,lpObj->Attack.StartX,lpObj->Attack.StartY,255) == 0)
 		{
 			this->CustomAttackClose(lpObj->Index);
 			return;
